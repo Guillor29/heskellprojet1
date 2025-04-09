@@ -1,14 +1,12 @@
+{-# LANGUAGE OverloadedStrings #-}
 module Main (main) where
 
 import Lib
+import qualified Data.ByteString.Lazy as BL
 
 main :: IO ()
-main = print (decodeStudents lecsv)
-
-lecsv = "nom,prénom,email\n\
-          \herve,guillaume,guillaume.herve@viacesi.fr\n\
-          \roger,elodie,elodie.roger@viacesi.fr\n\
-          \lemoing,pauline,pauline.lemoing@viacesi.fr\n\
-          \alves,charles,charles.alves@viacesi.fr\n\
-          \levassort,jules,jules.levassort@viacesi.fr\n\
-          \prigent,jeremy,jeremy.prigent@viacesi.fr"
+main = do
+    csvData <- BL.readFile "students.csv"
+    case decodeStudents csvData of
+        Left err -> putStrLn ("Erreur de décodage : " ++ err)
+        Right students -> print students
