@@ -1,1 +1,32 @@
-[{"email":"guillaume.herve@viacesi.fr","nom":"herve","prénom":"guillaume"},{"email":"elodie.roger@viacesi.fr","nom":"roger","prénom":"elodie"},{"email":"pauline.lemoing@viacesi.fr","nom":"lemoing","prénom":"pauline"},{"email":"charles.alves@viacesi.fr","nom":"alves","prénom":"charles"},{"email":"jules.levassort@viacesi.fr","nom":"levassort","prénom":"jules"},{"email":"jeremy.prigent@viacesi.fr","nom":"prigent","prénom":"jeremy"}]
+[
+    {
+        "email": "guillaume.herve@viacesi.fr",
+        "nom": "herve",
+        "prénom": "guillaume"
+    },
+    {
+        "email": "elodie.roger@viacesi.fr",
+        "nom": "roger",
+        "prénom": "elodie"
+    },
+    {
+        "email": "pauline.lemoing@viacesi.fr",
+        "nom": "lemoing",
+        "prénom": "pauline"
+    },
+    {
+        "email": "charles.alves@viacesi.fr",
+        "nom": "alves",
+        "prénom": "charles"
+    },
+    {
+        "email": "jules.levassort@viacesi.fr",
+        "nom": "levassort",
+        "prénom": "jules"
+    },
+    {
+        "email": "jeremy.prigent@viacesi.fr",
+        "nom": "prigent",
+        "prénom": "jeremy"
+    }
+]

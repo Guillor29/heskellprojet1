@@ -12,6 +12,7 @@ module Lib
 import qualified Data.Csv as Csv
 import GHC.Generics (Generic)
 import qualified Data.Aeson as Aeson
+import Data.Aeson.Encode.Pretty (encodePretty)
 import Data.Aeson (ToJSON)
 import qualified Data.ByteString.Lazy as BL
 import Data.Vector (Vector)
@@ -38,4 +39,4 @@ decodeStudents str = Csv.decode Csv.HasHeader str
 
 -- Conversion vers JSON
 studentsToJSON :: Vector Student -> BL.ByteString
-studentsToJSON = Aeson.encode . V.toList
+studentsToJSON = encodePretty . V.toList
