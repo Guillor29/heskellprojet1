@@ -1,29 +1,42 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE DeriveGeneric #-}
 
 module Lib
-    ( someFunc,
-        encodeStudents,
-        decodeStudents
+    (
+      encodeStudents,
+      decodeStudents,
+      studentsToJSON,
+      Student(..)
     ) where
 
-import Data.Text (Text)
-import Data.Csv
+import qualified Data.Csv as Csv
+import GHC.Generics (Generic)
+import qualified Data.Aeson as Aeson
+import Data.Aeson (ToJSON)
+import qualified Data.ByteString.Lazy as BL
 import Data.Vector (Vector)
-import Data.ByteString.Lazy
+import qualified Data.Vector as V
 
-someFunc :: IO ()
-someFunc = putStrLn "someFunc"
+-- Définition de Student comme record
+data Student = Student
+    { nom     :: String
+    , prénom  :: String
+    , email   :: String
+    } deriving (Show, Generic)
 
---textEncode = encode [("John" :: Text, 27 :: Int), ("Jane", 28)]
---textDecode = decode NoHeader "John,27\r\nJane,28\r\n" :: Either String (Vector (Text, Int))
+instance Csv.FromRecord Student
+instance Csv.ToRecord Student
+instance ToJSON Student
 
-type Surname = String
-type GivenName = String
-type Email = String
-type Student = (Surname, GivenName, Email)
 
-encodeStudents :: [Student] -> ByteString
-encodeStudents s = encode s
+-- Encodage CSV
+encodeStudents :: [Student] -> BL.ByteString
+encodeStudents s = Csv.encode s
 
-decodeStudents :: ByteString -> Either String (Vector Student)
-decodeStudents str = decode HasHeader str
+-- Décodage CSV
+decodeStudents :: BL.ByteString -> Either String (Vector Student)
+decodeStudents str = Csv.decode Csv.HasHeader str
+
+-- Conversion vers JSON
+studentsToJSON :: Vector Student -> BL.ByteString
+studentsToJSON = Aeson.encode . V.toList
