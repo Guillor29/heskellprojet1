@@ -28,7 +28,6 @@ instance Csv.FromRecord Student
 instance Csv.ToRecord Student
 instance ToJSON Student
 
-
 -- Encodage CSV
 encodeStudents :: [Student] -> BL.ByteString
 encodeStudents s = Csv.encode s
