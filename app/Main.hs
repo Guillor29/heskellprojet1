@@ -3,27 +3,12 @@ module Main (main) where
 import Lib
 
 main :: IO ()
-main = someFunc
+main = print (decodeStudents lecsv)
 
---{-# LANGUAGE OverloadedStrings #-}
---
---import Control.Applicative
---import qualified Data.ByteString.Lazy as BL
---import Data.Csv
---import qualified Data.Vector as V
---
---data Person = Person
---    { name   :: !String
---    , salary :: !Int
---    }
---
---instance FromNamedRecord Person where
---    parseNamedRecord r = Person <$> r .: "name" <*> r .: "salary"
---
---main :: IO ()
---main = do
---    csvData <- BL.readFile "salaries.csv"
---    case decodeByName csvData of
---        Left err -> putStrLn err
---        Right (_, v) -> V.forM_ v $ \ p ->
---            putStrLn $ name p ++ " earns " ++ show (salary p) ++ " dollars"
+lecsv = "nom,prénom,email\n\
+          \herve,guillaume,guillaume.herve@viacesi.fr\n\
+          \roger,elodie,elodie.roger@viacesi.fr\n\
+          \lemoing,pauline,pauline.lemoing@viacesi.fr\n\
+          \alves,charles,charles.alves@viacesi.fr\n\
+          \levassort,jules,jules.levassort@viacesi.fr\n\
+          \prigent,jeremy,jeremy.prigent@viacesi.fr"
