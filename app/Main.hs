@@ -21,13 +21,3 @@ main = do
                     let jsonOutput = studentsToJSON students
                     BL.writeFile "students.json" jsonOutput
                     putStrLn "Fichier json généré avec succès."
-
--- Ancien code avec fichier en dur
---    csvData <- BL.readFile "students.csv"
---    case decodeStudents csvData of
---        Left err -> putStrLn ("Erreur de décodage : " ++ err)
---        Right students -> do
---            print students
---            let jsonOutput = studentsToJSON students
---            BL.writeFile "students.json" jsonOutput
---            putStrLn "Fichier json généré avec succès."
