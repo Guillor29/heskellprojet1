@@ -39,6 +39,7 @@ library
     , base >=4.7 && <5
     , bytestring
     , cassava
+    , sqlite-simple
     , text
     , vector
   default-language: Haskell2010
@@ -59,6 +60,7 @@ executable maalsi23-csv2json-exe
     , bytestring
     , cassava
     , maalsi23-csv2json
+    , sqlite-simple
     , text
     , vector
   default-language: Haskell2010
@@ -80,6 +82,7 @@ test-suite maalsi23-csv2json-test
     , bytestring
     , cassava
     , maalsi23-csv2json
+    , sqlite-simple
     , text
     , vector
   default-language: Haskell2010

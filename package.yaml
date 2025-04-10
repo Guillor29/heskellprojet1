@@ -27,6 +27,9 @@ dependencies:
 - bytestring
 - aeson
 - aeson-pretty
+- sqlite-simple
+#- mysql
+#- io-streams
 
 ghc-options:
 - -Wall

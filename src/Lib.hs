@@ -6,6 +6,7 @@ module Lib
       encodeStudents,
       decodeStudents,
       studentsToJSON,
+      normalizeStudent,
       Student(..)
     ) where
 
