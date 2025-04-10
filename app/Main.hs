@@ -26,7 +26,7 @@ insertStudentsSQLite students = do
             "INSERT OR IGNORE INTO students (nom, prénom, email) VALUES (?, ?, ?)"
             (nom student, prénom student, email student)
 
-    putStrLn "Étudiants insérés dans SQLite avec succès."
+    putStrLn "✅ Étudiants insérés dans SQLite avec succès."
     close conn
 
 -- Programme principal
