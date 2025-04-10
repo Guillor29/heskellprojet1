@@ -44,12 +44,12 @@ toUpperandLower [] = []
 toUpperandLower (x:xs) = toUpper x : map toLower xs
 
 -- Mise en forme du nom de famille en majuscule
-toUppercase :: String -> String
-toUppercase = map toUpper
+toUpperAll :: String -> String
+toUpperAll = map toUpper
 
 -- Appliquer la mise en forme aux éléments du json
 normalizeStudent :: Student -> Student
-normalizeStudent s = s { nom = toUppercase (nom s), prénom = toUpperandLower (prénom s) }
+normalizeStudent s = s { nom = toUpperAll (nom s), prénom = toUpperandLower (prénom s) }
 
 -- Conversion vers JSON avec les noms et prénoms normalisés
 studentsToJSON :: Vector Student -> BL.ByteString
