@@ -47,7 +47,7 @@ toUpperandLower (x:xs) = toUpper x : map toLower xs
 toUppercase :: String -> String
 toUppercase = map toUpper
 
--- Appliquer les transformations à un Student
+-- Appliquer la mise en forme aux éléments du json
 normalizeStudent :: Student -> Student
 normalizeStudent s = s { nom = toUppercase (nom s), prénom = toUpperandLower (prénom s) }
 
