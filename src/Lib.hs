@@ -17,6 +17,7 @@ import Data.Aeson (ToJSON)
 import qualified Data.ByteString.Lazy as BL
 import Data.Vector (Vector)
 import qualified Data.Vector as V
+import Data.Char (toUpper, toLower)
 
 -- Définition de Student comme record
 data Student = Student
@@ -37,6 +38,19 @@ encodeStudents s = Csv.encode s
 decodeStudents :: BL.ByteString -> Either String (Vector Student)
 decodeStudents str = Csv.decode Csv.HasHeader str
 
--- Conversion vers JSON
+-- Mise en forme du prénom, première lettre en majuscule et le reste en minuscules
+toUpperandLower :: String -> String
+toUpperandLower [] = []
+toUpperandLower (x:xs) = toUpper x : map toLower xs
+
+-- Mise en forme du nom de famille en majuscule
+toUppercase :: String -> String
+toUppercase = map toUpper
+
+-- Appliquer les transformations à un Student
+normalizeStudent :: Student -> Student
+normalizeStudent s = s { nom = toUppercase (nom s), prénom = toUpperandLower (prénom s) }
+
+-- Conversion vers JSON avec les noms et prénoms normalisés
 studentsToJSON :: Vector Student -> BL.ByteString
-studentsToJSON = encodePretty . V.toList
+studentsToJSON = encodePretty . map normalizeStudent . V.toList

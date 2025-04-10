@@ -1,32 +1,32 @@
 [
     {
         "email": "guillaume.herve@viacesi.fr",
-        "nom": "herve",
-        "prénom": "guillaume"
+        "nom": "HERVÉ",
+        "prénom": "Guillaume"
     },
     {
         "email": "elodie.roger@viacesi.fr",
-        "nom": "roger",
-        "prénom": "elodie"
+        "nom": "ROGER",
+        "prénom": "Elodie"
     },
     {
         "email": "pauline.lemoing@viacesi.fr",
-        "nom": "lemoing",
-        "prénom": "pauline"
+        "nom": "LEMOING",
+        "prénom": "Pauline"
     },
     {
         "email": "charles.alves@viacesi.fr",
-        "nom": "alves",
-        "prénom": "charles"
+        "nom": "ALVES",
+        "prénom": "Charles"
     },
     {
         "email": "jules.levassort@viacesi.fr",
-        "nom": "levassort",
-        "prénom": "jules"
+        "nom": "LEVASSORT",
+        "prénom": "Jules"
     },
     {
         "email": "jeremy.prigent@viacesi.fr",
-        "nom": "prigent",
-        "prénom": "jeremy"
+        "nom": "PRIGENT",
+        "prénom": "Jeremy"
     }
 ]
